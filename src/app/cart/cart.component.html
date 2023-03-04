@@ -1,1 +1,54 @@
-<p>cart works!</p>
+<div class="cart-container">
+    <div class="cart-item-details">
+      <div class="cart-item" *ngFor="let cart of cartList">
+        <img src="{{cart.url}}" alt="{{cart.name}}">
+        <div class="cart-panel">
+          <div class="mb-2">{{cart.name}}</div>
+          <div class="mb-2">${{cart.price}}</div>
+          <div>
+            Amount:
+            <select class="form-control mb-2" (ngModelChange)="watchAmount($event, cart.id)" [(ngModel)]="quantityList[cart.id]" [ngModelOptions]="{ standalone: true }">
+              <option *ngFor="let val of count" value="{{val}}" [selected]="val === cart.quantity">{{val}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="cartList.length !== 0">
+        <h2>Total: ${{getTotal()}}</h2>
+      </div>
+    </div>
+
+    <div class="form-margin">
+        <form #form="ngForm" (ngSubmit)="onSubmit(form.value)">
+            <div class="form-group mb-3">
+              <label for="name" >Full name</label>
+              <input type="text" name="fullname" ngModel #fullname="ngModel" class="form-control mb-3" aria-describedby="Full name" placeholder="John Doe" required minlength="5">
+              <div *ngIf="fullname.dirty && fullname.errors" class="alert alert-danger">
+                <div *ngIf="fullname.errors['required']">Please provide your fullname</div>
+                <div *ngIf="fullname.errors['minlength']">Full name must contain at least 5 characters</div>
+              </div>
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="address">Address</label>
+              <input name="address" ngModel #address="ngModel" required minlength="5" type="text" class="form-control mb-3" aria-describedby="Address" placeholder="123 Fake st.">
+              <div *ngIf="address.dirty && address.errors" class="alert alert-danger">
+                <div *ngIf="address.errors['required']">Please provide your address</div>
+                <div *ngIf="address.errors['minlength']">Address must contain at least 5 characters</div>
+              </div>
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="card" class="mb-2">Debit Card number</label>
+              <input type="text" class="form-control" aria-describedby="card" placeholder="XXXXXXXXXXXX1234" name="card" ngModel required #card="ngModel" minlength="16" maxlength="16">
+              <small class="form-text text-muted mb-3">We'll never share your payment details with anyone else.</small>
+              <div *ngIf="card.dirty && card.errors" class="alert alert-danger">
+                <div *ngIf="card.errors['required']">Please provide your payment details</div>
+                <div *ngIf="card.errors['minlength']">Address must contain 16 characters</div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Submit</button>
+          </form>
+    </div>
+</div>

@@ -1,6 +1,13 @@
-<div class="somePlaceholder">
-    <img src="{{product.url}}" alt="{{product.name}}">
-    <p>{{product.name}}</p>
-    <p>{{product.price}}</p>
-    <p>{{product.quantity}}</p>
+<div class="product-container">
+    <a [routerLink]="['/product', product.id]">
+        <img class="product-image" src="{{product.url}}" alt="{{product.name}}">
+    </a>
+    <div class="product-others">
+        <div class="mb-2">{{product.name}}</div>
+        <div class="mb-2">${{product.price}}</div>
+        <select class="form-control mb-2" (ngModelChange)="updateProduct($event)" [(ngModel)]="quantity" name="quantity" [ngModelOptions]="{ standalone: true }">
+            <option *ngFor="let val of count" value="{{val}}">{{val}}</option>
+        </select>
+        <button class="btn btn-primary" (click)="addToCart(product)">Add to cart</button>
+    </div>
 </div>

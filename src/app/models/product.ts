@@ -15,3 +15,13 @@ export class Product {
         this.description = ""
     }
 }
+
+export type Form = {
+    fullname: string;
+    address: string;
+    card: string;
+  }
+
+export interface Dict {
+    [key: number]: number
+}
