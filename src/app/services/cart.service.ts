@@ -38,4 +38,8 @@ export class CartService {
     this.cartList = this.cartList.filter(item => item !== cartItem)
     return this.cartList
   }
+
+  removeAllCart (): Product[] {
+    return this.cartList = []
+  }
 }

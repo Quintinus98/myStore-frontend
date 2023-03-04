@@ -25,3 +25,13 @@ export type Form = {
 export interface Dict {
     [key: number]: number
 }
+
+export class User {
+    fullname: string;
+    price: number;
+
+    constructor () {
+        this.fullname = "";
+        this.price = 0;
+    }
+}

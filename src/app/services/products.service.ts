@@ -15,8 +15,4 @@ export class ProductsService {
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>('../../assets/data.json');
   }
-
-  getSingleProduct(productId: string): Observable<Product> {
-    return this.http.get<Product>(`../../assets/data.json?id=${productId}`)
-  }
 }

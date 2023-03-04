@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { Form, Product, Dict } from '../models/product';
 import { CartService } from '../services/cart.service';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -14,30 +15,31 @@ export class CartComponent {
   cartList: Product[] = [];
   quantityList: Dict = {};
   count: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  sum: number = 0;
 
   constructor (
     private cartService: CartService,
-    private router: Router
+    private router: Router,
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {
     this.cartList = this.cartService.getCartList();
-    // for (let i = 0; i < this.cartList.length; i++) {
-    //   const cart = this.cartList[i];
-    //   this.quantityList[cart.id] = cart.quantity;
-    // }
-
     this.cartList.map(cartItem => {
       this.quantityList[cartItem.id] = cartItem.quantity
     })
-    console.log(this.quantityList);
-    
   }
 
 // You added congrats route here.
-  onSubmit(form: Form) {
-    console.log(form.card)
-    this.router.navigate(['/congrats']);
+  onSubmit(form: Form): void {
+    if (this.sum === 0) {
+      alert('Add a product!')
+      this.router.navigate(['/'])
+    } else {
+      this.userService.addUser(form.fullname, this.sum)
+      this.router.navigate(['/congrats']);
+      this.cartService.removeAllCart();
+    }
   }
 
   getTotal(): number {
@@ -45,7 +47,8 @@ export class CartComponent {
     this.cartList.map(item => {
       sum += item.quantity * item.price
     })
-    return parseFloat(sum.toFixed(2))
+    this.sum = sum;
+    return parseFloat(this.sum.toFixed(2))
   }
 
   watchAmount(val: number, productId: number): void {
