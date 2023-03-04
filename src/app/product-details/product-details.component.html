@@ -1,1 +1,13 @@
-<p>product-details works! Here's my {{id}}</p>
+<div class="detail-container">
+    <img src="{{product.url}}" alt="{{product.name}}">
+    <div class="detail-item">
+        <h2 class="mb-2">{{product.name}}</h2>
+        <div class="mb-2">${{product.price}}</div>
+        <div class="mb-2">{{product.description}}</div>
+        <select class="form-control mb-2 select-input" (ngModelChange)="updateProduct($event)" [(ngModel)]="quantity" name="quantity" [ngModelOptions]="{ standalone: true }">
+            <option *ngFor="let val of count" value="{{val}}">{{val}}</option>
+        </select>
+        <button class="btn btn-primary mb-2" type="submit" (click)="addToCart(product)">Add to cart</button>
+        <div><a routerLink="/" class="back-link">Back to product list</a></div>
+    </div>
+</div>
