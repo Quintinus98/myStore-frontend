@@ -28,7 +28,23 @@ This application reflects the same user experience as that of a real-world e-com
 
 - **Navbar**: Shows the Products and Cart links.
 
+## Routing
+  - path: "" - Products page
+  - path: "product/:id" - Product Details page
+  - path: "cart" - Cart and Checkout page
+  - path: "congrats" - Order Confirmation page
+  - path: '**' - Wild card (Page Not found)
+
 
 ## Demo
 
 ![MyStoreFrontend](shoppingflow.gif)
+
+
+## Other Info
+
+Some Models used includes:
+- Product
+- Form
+- Dict
+- User
