@@ -13,6 +13,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CongratsComponent } from './congrats/congrats.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CongratsComponent } from './congrats/congrats.component';
     ConfirmationComponent,
     ProductDetailsComponent,
     NavBarComponent,
-    CongratsComponent
+    CongratsComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

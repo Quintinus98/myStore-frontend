@@ -40,7 +40,7 @@
 
             <div class="form-group mb-3">
               <label for="card" class="mb-2">Debit Card number</label>
-              <input type="text" class="form-control" aria-describedby="card" placeholder="XXXXXXXXXXXX1234" name="card" ngModel required #card="ngModel" minlength="16" maxlength="16">
+              <input type="text" (keypress)="numericOnly($event)" class="form-control" placeholder="Card number" name="card" ngModel required #card="ngModel" minlength="16" maxlength="16">
               <small class="form-text text-muted mb-3">We'll never share your payment details with anyone else.</small>
               <div *ngIf="card.dirty && card.errors" class="alert alert-danger">
                 <div *ngIf="card.errors['required']">Please provide your payment details</div>

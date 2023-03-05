@@ -12,6 +12,21 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
+## Project Features
+
+This application reflects the same user experience as that of a real-world e-commerce website, including a(n):
+
+- **Product list page**: Which displays the available products for the user to choose and add to their cart (in various quantities).
+
+- **Product details page**: Which displays more information about any particular product.
+
+- **Shopping cart**: Which includes the products that the user has added to their cart.
+
+- **Checkout form**: Which collects information about the user (e.g., name, address, payment details, etc.)
+
+- **Order confirmation page**: Which shows the outcome after the user completes the checkout process (i.e., submits the checkout form)
+
+
 ## Demo
 
 ![MyStoreFrontend](shoppingflow.gif)
