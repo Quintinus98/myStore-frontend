@@ -41,7 +41,7 @@ This application reflects the same user experience as that of a real-world e-com
 ![MyStoreFrontend](shoppingflow.gif)
 
 
-## Other Info
+## Models
 
 Some Models used includes:
 - Product
