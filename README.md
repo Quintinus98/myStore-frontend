@@ -48,3 +48,19 @@ Some Models used includes:
 - Form
 - Dict
 - User
+
+## Components
+- cart
+- cart-item
+- confirmation
+- congrats
+- nav-bar
+- not-found
+- product-details
+- product-item
+- products
+
+## Services
+- cartService
+- productsService
+- userService
