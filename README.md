@@ -16,7 +16,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 This application reflects the same user experience as that of a real-world e-commerce website, including a(n):
 
-- **Product list page**: Which displays the available products for the user to choose and add to their cart (in various quantities).
+- **Products page**: Which displays the available products for the user to choose and add to their cart (in various quantities).
 
 - **Product details page**: Which displays more information about any particular product.
 
@@ -25,6 +25,8 @@ This application reflects the same user experience as that of a real-world e-com
 - **Checkout form**: Which collects information about the user (e.g., name, address, payment details, etc.)
 
 - **Order confirmation page**: Which shows the outcome after the user completes the checkout process (i.e., submits the checkout form)
+
+- **Navbar**: Shows the Products and Cart links.
 
 
 ## Demo
