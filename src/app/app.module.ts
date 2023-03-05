@@ -14,6 +14,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CongratsComponent } from './congrats/congrats.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { CartItemComponent } from './cart-item/cart-item.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     ProductDetailsComponent,
     NavBarComponent,
     CongratsComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    CartItemComponent
   ],
   imports: [
     BrowserModule,

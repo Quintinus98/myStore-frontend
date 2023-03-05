@@ -13,11 +13,7 @@ import { Router } from '@angular/router';
 
 export class CartComponent {
   cartList: Product[] = [];
-  quantityList: Dict = {};
-  count: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
   sum: number = 0;
-
-  @Output() total: EventEmitter<number> = new EventEmitter();
 
   constructor (
     private cartService: CartService,
@@ -27,9 +23,6 @@ export class CartComponent {
 
   ngOnInit(): void {
     this.cartList = this.cartService.getCartList();
-    this.cartList.map(cartItem => {
-      this.quantityList[cartItem.id] = cartItem.quantity
-    })
   }
 
 // You added congrats route here.
@@ -56,24 +49,11 @@ export class CartComponent {
       sum += item.quantity * item.price
     })
     this.sum = sum;
-    this.total.emit(sum);
     return parseFloat(this.sum.toFixed(2))
   }
 
-  watchAmount(val: number, productId: number): void {
-    this.cartList.map(cart => {
-      if (cart.id === productId) this.quantityList[productId] = val
-    })
-    
-    if (this.quantityList[productId] <= 0) {
-      const product = this.cartList.filter(cartItem => cartItem.id === productId)[0]
-      this.cartList = this.cartService.removeFromCart(product);
-      this.getTotal();
-      alert('Product removed from cart!')
-    }
-    else {
-      this.cartList = this.cartService.updateCart(productId, val)
-      this.getTotal();
-    }
+  removeCartItem(product: Product):void {
+    this.cartList = this.cartService.removeFromCart(product);
   }
+
 }

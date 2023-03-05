@@ -1,18 +1,6 @@
 <div class="cart-container">
     <div class="cart-item-details">
-      <div class="cart-item" *ngFor="let cart of cartList">
-        <img src="{{cart.url}}" alt="{{cart.name}}">
-        <div class="cart-panel">
-          <div class="mb-2">{{cart.name}}</div>
-          <div class="mb-2">${{cart.price}}</div>
-          <div>
-            Amount:
-            <select class="form-control mb-2" (ngModelChange)="watchAmount($event, cart.id)" [(ngModel)]="quantityList[cart.id]" [ngModelOptions]="{ standalone: true }">
-              <option *ngFor="let val of count" value="{{val}}" [selected]="val === cart.quantity">{{val}}</option>
-            </select>
-          </div>
-        </div>
-      </div>
+      <app-cart-item  *ngFor="let cart of cartList" [cartItem]="cart" (removeCartItem)="removeCartItem($event)"></app-cart-item>
       <div *ngIf="cartList.length !== 0">
         <h2>Total: ${{getTotal()}}</h2>
       </div>
