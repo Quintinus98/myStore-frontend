@@ -13,6 +13,7 @@ img {
   justify-content: center;
   align-items: center;
   margin-top: 64px;
+  /* margin: 64px; */
 }
 
 .detail-item {
@@ -23,4 +24,25 @@ img {
 .back-link {
   margin-top: 8px;
   text-decoration: none;
+}
+
+
+@media screen and (max-width: 746px) {
+  .detail-container {
+    flex-direction: column;
+  }
+  
+  .detail-item {
+    display: flex;
+    flex-direction: column;
+    margin: 28px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .wrapButton {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+  }
 }

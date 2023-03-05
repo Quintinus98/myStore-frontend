@@ -1,11 +1,11 @@
 <div class="cart-item">
     <img src="{{cartItem.url}}" alt="{{cartItem.name}}">
     <div class="cart-panel">
-      <div class="mb-2">{{cartItem.name}}</div>
+      <div class="mb-2 bookName">{{cartItem.name}}</div>
       <div class="mb-2">${{cartItem.price}}</div>
       <div>
         Amount:
-        <select class="form-control mb-2" (ngModelChange)="watchAmount($event, cartItem.id)" [(ngModel)]="quantity" [ngModelOptions]="{ standalone: true }">
+        <select class="form-control mb-2 number-input" (ngModelChange)="watchAmount($event, cartItem.id)" [(ngModel)]="quantity" [ngModelOptions]="{ standalone: true }">
           <option *ngFor="let val of count" value="{{val}}" [selected]="val === cartItem.quantity">{{val}}</option>
         </select>
       </div>

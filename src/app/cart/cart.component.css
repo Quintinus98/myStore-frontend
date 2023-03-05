@@ -38,3 +38,19 @@ img {
   margin-left: 50px;
   margin-right: 50px;
 }
+
+
+@media screen and (max-width: 746px) {
+  .cart-container {
+    flex-direction: column-reverse;
+    margin: 64px;
+  }
+
+  .form-margin {
+    margin-bottom: 64px;
+  }
+
+  .cart-item-details {
+    margin-left: 0px;
+  }
+}

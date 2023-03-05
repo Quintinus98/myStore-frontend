@@ -14,3 +14,27 @@ img {
   margin-left: 50px;
   margin-right: 50px;
 }
+
+.number-input {
+  width: 80px;
+  text-align: center;
+}
+
+@media screen and (max-width: 746px) {
+  .cart-item {
+    display: flex;
+    align-items: center;
+    justify-items: flex-start;
+  }
+  .cart-panel {
+    margin-left: 20px;
+    margin-right: 0;
+  }
+  img {
+    width: 150px;
+  }
+  .bookName {
+    font-size: 22px;
+    font-weight: bold;
+  }
+}
